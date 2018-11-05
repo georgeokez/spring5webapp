@@ -1,6 +1,9 @@
 package com.george.dev.spring5webapp.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Objects;
 
 /**
  * Created by George 5/11/2018
@@ -13,10 +16,16 @@ public class Publisher {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @NotNull
+    @Size(max = 100)
     private String name;
+
+    @Size(max = 100)
     private String address;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade =  CascadeType.ALL,
+            mappedBy = "publisher")
     private Book book;
 
     public Publisher() {
@@ -57,5 +66,29 @@ public class Publisher {
 
     public void setBook(Book book) {
         this.book = book;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Publisher publisher = (Publisher) o;
+        return id == publisher.id;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Publisher{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", book=" + book +
+                '}';
     }
 }

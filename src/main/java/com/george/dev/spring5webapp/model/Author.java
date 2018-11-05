@@ -1,6 +1,8 @@
 package com.george.dev.spring5webapp.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -15,7 +17,13 @@ public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @NotNull
+    @Size(max = 65)
     private String firstName;
+
+    @NotNull
+    @Size(max = 65)
     private String lastName;
 
     @ManyToMany(mappedBy = "authors")
