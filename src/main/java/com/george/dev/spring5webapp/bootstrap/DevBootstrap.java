@@ -59,12 +59,16 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         bookRepository.save(noEJB);
 
 
-        // Gabriel
+        /*// Gabriel
         Author gabriel = new Author("Gabriel", "McQueens");
         Book oauth2 = new Book("Introduction to Oauth2 in Spring", "44325");
         Publisher publisherC = new Publisher("Light House", "45, Neil Come Towels NY");
 
         // Still to come codebn
+
+        Author gabriela = new Author("Gabriel", "McQueens");
+        Book oauth = new Book("Introduction to Oauth2 in Spring", "44325");
+        Publisher publisherD = new Publisher("Light House", "45, Neil Come Towels NY");*/
 
     }
 
