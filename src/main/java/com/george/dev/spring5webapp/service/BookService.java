@@ -19,7 +19,7 @@ public class BookService {
 
     // fetching all books in the db
     public List<Book> fetchAllBooks(){
-        return bookRepository.findAllBooks();
+        return  null;//bookRepository.findAllBooks();
     }
 
     // saving a book service into the database
